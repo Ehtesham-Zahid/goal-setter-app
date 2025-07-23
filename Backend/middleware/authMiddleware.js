@@ -2,7 +2,7 @@ const jwt = require("jsonwebtoken");
 const asyncHandler = require("express-async-handler");
 const User = require("../models/userModel");
 
-const protect = asyncHandler(async (req, resizeBy, next) => {
+const protect = asyncHandler(async (req, res, next) => {
   let token;
 
   if (
@@ -22,7 +22,7 @@ const protect = asyncHandler(async (req, resizeBy, next) => {
       next();
     } catch (error) {
       console.log(error);
-      resizeBy.status(401);
+      res.status(401);
       throw new Error("Not authorized");
     }
   }

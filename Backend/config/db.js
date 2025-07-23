@@ -7,9 +7,9 @@ mongoose.connect(
 const connectDB = async () => {
   try {
     const conn = await mongoose.connect(process.env.MONGO_URI);
-    console.log(`MongoDB connected: ${conn.connection.host}`.cyan.underline);
+    console.log(`MongoDB connected: todoCluster`.cyan.underline);
   } catch (err) {
-    console.log(error);
+    console.log(err);
     process.exit(1);
   }
 };
