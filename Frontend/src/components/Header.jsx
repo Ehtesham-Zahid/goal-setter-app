@@ -19,7 +19,7 @@ const Header = () => {
       {user ? (
         <ul>
           <li onClick={logoutHandler}>
-            <button>
+            <button className="btn">
               <FaSignOutAlt className="rotate-180" /> Logout
             </button>
           </li>
