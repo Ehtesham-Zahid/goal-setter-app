@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5000/api/goals";
+const API_URL = "https://goal-setter-app-production.up.railway.app/api/goals";
 
 const getGoals = async () => {
   try {
