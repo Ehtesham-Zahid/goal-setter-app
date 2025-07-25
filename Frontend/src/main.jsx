@@ -38,3 +38,5 @@ createRoot(document.getElementById("root")).render(
     <ToastContainer />
   </StrictMode>
 );
+
+// "proxy": "http://localhost:5000",
