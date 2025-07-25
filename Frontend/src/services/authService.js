@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5000/api/users";
+const API_URL = "https://goal-setter-app-production.up.railway.app/api/users";
 
 const register = async (registerData) => {
   try {
