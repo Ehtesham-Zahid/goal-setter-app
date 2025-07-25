@@ -10,6 +10,10 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Auth from "./pages/Auth";
 import Dashboard from "./pages/Dashboard";
+import AuthProvider from "./contexts/AuthContext";
+
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const router = createBrowserRouter([
   {
@@ -32,5 +36,6 @@ const router = createBrowserRouter([
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <RouterProvider router={router} />
+    <ToastContainer />
   </StrictMode>
 );

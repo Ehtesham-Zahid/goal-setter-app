@@ -3,8 +3,16 @@ const bcrypt = require("bcrypt");
 const asyncHandler = require("express-async-handler");
 const User = require("../models/userModel");
 
+// Generate Token
+const generateToken = (id) => {
+  return jwt.sign({ id }, process.env.JWT_SECRET, {
+    expiresIn: "30d",
+  });
+};
+
 const registerUser = asyncHandler(async (req, res) => {
   const { name, email, password } = req.body;
+  console.log(req.body);
 
   if (!name || !email || !password) {
     res.status(400);
@@ -30,8 +38,9 @@ const registerUser = asyncHandler(async (req, res) => {
   });
 
   if (user) {
+    console.log("Main hun user:", user);
     res.status(201).json({
-      _id: user._id,
+      id: user._id,
       name: user.name,
       email: user.email,
       token: generateToken(user._id),
@@ -74,12 +83,5 @@ const getMe = asyncHandler(async (req, res) => {
 const logoutUser = asyncHandler(async (req, res) => {
   res.json({ message: "Logout User" });
 });
-
-// Generate Token
-const generateToken = (id) => {
-  return jwt.sign(id, process.env.JWT_SECRET, {
-    expiresIn: "30d",
-  });
-};
 
 module.exports = { registerUser, loginUser, getMe, logoutUser };
